@@ -24,8 +24,6 @@ export const getCharacters = async (page: number) => {
       characters(page: $page) {
         info {
           pages
-          next
-          count
         }
         results {
           id
@@ -37,7 +35,6 @@ export const getCharacters = async (page: number) => {
   `;
 
   const response = await gqlClient.request(query, { page });
-  // Quick n dirty
   return charactersSchema.parse(response);
 };
 
@@ -48,7 +45,6 @@ export const characterSchema = z.object({
 });
 
 const infoSchema = z.object({
-  next: z.number().nullable(),
   pages: z.number(),
 });
 
