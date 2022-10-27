@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { DetailedCharacter } from "../types";
 
 type Episode = DetailedCharacter["episode"][number];
@@ -26,8 +27,10 @@ interface EpisodeCardProps {
 }
 const EpisodeCard = ({ episode }: EpisodeCardProps) => {
   return (
-    <div className="cursor-pointer rounded-2xl bg-neutral-100 p-4 text-neutral-600 shadow-md transition-colors hover:bg-neutral-200 hover:text-neutral-700">
-      <p className="text-lg">{episode.name}</p>
-    </div>
+    <Link href={`/episodes/${episode.id}`} passHref>
+      <a className="cursor-pointer rounded-2xl bg-neutral-100 p-4 text-neutral-600 shadow-md transition-colors hover:bg-neutral-200 hover:text-neutral-700">
+        <p className="text-lg">{episode.name}</p>
+      </a>
+    </Link>
   );
 };
