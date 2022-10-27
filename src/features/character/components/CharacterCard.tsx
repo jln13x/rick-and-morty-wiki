@@ -1,6 +1,6 @@
+import dynamic from "next/dynamic";
 import Image from "next/future/image";
 import Link from "next/link";
-import { FavoriteMark } from "../favorite/FavoriteMark";
 import { Character } from "../types";
 
 interface Props {
@@ -29,8 +29,12 @@ export const CharacterCard = ({ character }: Props) => {
         </a>
       </Link>
       <div className="absolute top-0 right-0 rounded-bl-2xl bg-black/80 p-2 backdrop-blur-sm">
-        <FavoriteMark character={character} />
+        <LazyFavoriteMark character={character} />
       </div>
     </div>
   );
 };
+
+const LazyFavoriteMark = dynamic(() => import("../favorite/FavoriteMark"), {
+  ssr: false,
+});

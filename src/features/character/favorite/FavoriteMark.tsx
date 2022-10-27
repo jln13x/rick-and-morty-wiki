@@ -6,7 +6,7 @@ interface Props {
   character: Character;
 }
 
-export const FavoriteMark = ({ character }: Props) => {
+const FavoriteMark = ({ character }: Props) => {
   const [favorites, toggleFavorite] = useFavoritesStore((s) => [
     s.favorites,
     s.toggleFavorite,
@@ -62,3 +62,5 @@ const HeartSolid = () => {
     </svg>
   );
 };
+
+export default FavoriteMark;

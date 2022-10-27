@@ -1,11 +1,12 @@
 import create from "zustand";
+import { persist } from "zustand/middleware";
 
 interface StoreState {
   favorites: string[];
   toggleFavorite: (id: string) => void;
 }
 
-export const useFavoritesStore = create<StoreState>((set) => ({
+const store = persist<StoreState>((set) => ({
   favorites: [],
   toggleFavorite: (id: string) => {
     set((state) => {
@@ -21,3 +22,5 @@ export const useFavoritesStore = create<StoreState>((set) => ({
     });
   },
 }));
+
+export const useFavoritesStore = create(store);
