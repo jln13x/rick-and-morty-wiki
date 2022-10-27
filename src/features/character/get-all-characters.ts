@@ -1,11 +1,11 @@
 import { gqlClient, gql } from "@/lib/graphql-client";
 import { z } from "zod";
-import { env } from "@/env/server.mjs";
 
 export const getAllCharacters = async () => {
   const firstPage = await getCharacters(1);
 
-  if (env.NODE_ENV === "development") return firstPage.characters.results;
+  if (process.env.NODE_ENV === "development")
+    return firstPage.characters.results;
 
   const pages = firstPage.characters.info.pages;
 

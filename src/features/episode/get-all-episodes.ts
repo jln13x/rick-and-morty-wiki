@@ -1,11 +1,10 @@
-import { env } from "@/env/server.mjs";
 import { gql, gqlClient } from "@/lib/graphql-client";
 import { z } from "zod";
 
 export const getAllEpisodes = async () => {
   const firstPage = await getEpisodes(1);
 
-  if (env.NODE_ENV === "development") return firstPage.episodes.results;
+  if (process.env.NODE_ENV === "development") return firstPage.episodes.results;
 
   const pages = firstPage.episodes.info.pages;
 
