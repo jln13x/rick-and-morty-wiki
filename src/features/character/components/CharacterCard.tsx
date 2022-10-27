@@ -1,5 +1,6 @@
 import Image from "next/future/image";
 import Link from "next/link";
+import { FavoriteMark } from "../favorite/FavoriteMark";
 import { Character } from "../types";
 
 interface Props {
@@ -10,9 +11,9 @@ export const CharacterCard = ({ character }: Props) => {
   const { name, image: imageSrc } = character;
 
   return (
-    <Link href={`/characters/${character.id}`} passHref>
-      <a>
-        <div className="relative overflow-clip rounded-xl border shadow-md">
+    <div className="relative overflow-clip rounded-xl border shadow-md">
+      <Link href={`/characters/${character.id}`} passHref>
+        <a>
           <Image
             src={imageSrc}
             alt={`Image of ${name}`}
@@ -25,8 +26,11 @@ export const CharacterCard = ({ character }: Props) => {
               {name}
             </span>
           </div>
-        </div>
-      </a>
-    </Link>
+        </a>
+      </Link>
+      <div className="absolute top-0 right-0 rounded-bl-2xl bg-black/80 p-2 backdrop-blur-sm">
+        <FavoriteMark character={character} />
+      </div>
+    </div>
   );
 };
