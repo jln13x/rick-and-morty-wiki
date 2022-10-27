@@ -1,4 +1,6 @@
+import dynamic from "next/dynamic";
 import Image from "next/future/image";
+import FavoriteMark from "../favorite/FavoriteMark";
 import { DetailedCharacter } from "../types";
 
 interface Props {
@@ -17,6 +19,7 @@ export const CharacterDetails = ({ character }: Props) => {
         className="rounded-2xl"
       />
       <h1 className="mt-2 text-center text-3xl font-bold">{character.name}</h1>
+      <LazyFavoriteMark character={character} />
       <div className="mx-auto mt-4 flex justify-center rounded-2xl bg-white/10 p-4">
         <DetailsTable
           details={[
@@ -46,6 +49,10 @@ export const CharacterDetails = ({ character }: Props) => {
     </div>
   );
 };
+
+const LazyFavoriteMark = dynamic(() => import("../favorite/FavoriteMark"), {
+  ssr: false,
+});
 
 interface DetailsTableProps {
   details: {

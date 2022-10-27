@@ -21,6 +21,7 @@ const FavoriteMark = ({ character }: Props) => {
     <button
       onClick={() => toggleFavorite(character.id)}
       className="fill-rose-600 stroke-rose-600/60"
+      title={isFavorite ? "Remove from favorites" : "Add to favorites"}
     >
       {isFavorite ? <HeartSolid /> : <HeartOutline />}
     </button>
