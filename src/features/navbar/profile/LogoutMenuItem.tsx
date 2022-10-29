@@ -1,14 +1,16 @@
 import { signOut } from "next-auth/react";
+import { ProfileMenuItem } from "./ProfileMenuItem";
 
-export const LogoutButton = () => {
+export const LogoutMenuItem = () => {
   return (
-    <button
+    <ProfileMenuItem
+      as="button"
       onClick={() => signOut()}
-      className="flex items-center rounded-2xl border-2 p-1 px-2"
+      className="flex items-center justify-between space-x-4"
     >
+      <span>Logout</span>
       <LogoutIcon />
-      <span className="ml-2 text-xs">Logout</span>
-    </button>
+    </ProfileMenuItem>
   );
 };
 

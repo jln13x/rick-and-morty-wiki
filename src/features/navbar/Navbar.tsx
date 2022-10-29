@@ -1,7 +1,7 @@
 import { Container } from "@/features/common/components";
 import { Logo } from "./Logo";
 import { INavLink, NavLink } from "./NavLink";
-import { Profile } from "./Profile";
+import { Profile } from "./profile/Profile";
 
 const links: INavLink[] = [
   {
@@ -17,7 +17,7 @@ const links: INavLink[] = [
 export const Navbar = () => {
   return (
     <div className="h-40 p-4">
-      <Container className="flex h-full justify-between">
+      <Container className="flex h-full items-center justify-between">
         <Logo />
 
         <div className="ml-4  flex items-center space-x-16">
