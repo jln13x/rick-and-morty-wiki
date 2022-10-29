@@ -1,9 +1,33 @@
+import { Container } from "@/features/common/components";
+import { Logo } from "./Logo";
+import { INavLink, NavLink } from "./NavLink";
 import { Profile } from "./Profile";
+
+const links: INavLink[] = [
+  {
+    name: "Characters",
+    href: "/characters",
+  },
+  {
+    name: "Episodes",
+    href: "/episodes",
+  },
+];
 
 export const Navbar = () => {
   return (
-    <div className="flex h-20 justify-end bg-black/20 p-4">
-      <Profile />
+    <div className="h-40 p-4">
+      <Container className="flex h-full justify-between">
+        <Logo />
+
+        <div className="ml-4  flex items-center space-x-16">
+          {links.map((l) => (
+            <NavLink navLink={l} key={l.name} />
+          ))}
+        </div>
+
+        <Profile />
+      </Container>
     </div>
   );
 };

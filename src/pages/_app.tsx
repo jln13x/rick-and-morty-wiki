@@ -19,7 +19,7 @@ const App: AppType<{ session: Session | null }> = ({
           <header>
             <Navbar />
           </header>
-          <main>
+          <main className="pt-20">
             <Component {...pageProps} />
           </main>
         </SessionProvider>
