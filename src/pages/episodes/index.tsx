@@ -5,7 +5,7 @@ import { EpisodeCard } from "@/features/episode/components";
 
 const CharactersPage: NextPage<Props> = ({ episodes }) => {
   return (
-    <Container className="grid grid-cols-4 gap-8 py-4">
+    <Container className="flex flex-wrap justify-center gap-8">
       {episodes.map((episode) => (
         <EpisodeCard key={episode.id} episode={episode} />
       ))}

@@ -3,6 +3,7 @@ import {
   CharacterDetails,
   CharacterEpisodes,
 } from "@/features/character/components";
+import { Container } from "@/features/common/components";
 import type {
   GetStaticPaths,
   GetStaticPropsContext,
@@ -14,14 +15,16 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const CharacterPage: NextPage<Props> = ({ character }) => {
   return (
-    <div className="relative flex flex-col md:flex-row">
-      <div className="md:sticky md:top-0 md:h-screen md:w-2/4 xl:w-1/4">
-        <CharacterDetails character={character} />
+    <Container>
+      <div className="relative flex flex-col md:flex-row">
+        <div className="md:sticky md:top-0 md:h-screen md:w-2/4 xl:w-1/4">
+          <CharacterDetails character={character} />
+        </div>
+        <div className="h-full md:w-2/4 xl:w-3/4">
+          <CharacterEpisodes episodes={character.episode} />
+        </div>
       </div>
-      <div className="h-full md:w-2/4 xl:w-3/4">
-        <CharacterEpisodes episodes={character.episode} />
-      </div>
-    </div>
+    </Container>
   );
 };
 

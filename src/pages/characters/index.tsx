@@ -5,10 +5,12 @@ import { Container } from "@/features/common/components";
 
 const CharactersPage: NextPage<Props> = ({ characters }) => {
   return (
-    <Container className="grid grid-cols-4 gap-8 py-4">
-      {characters.map((character) => (
-        <CharacterCard key={character.id} character={character} />
-      ))}
+    <Container>
+      <div className="flex flex-wrap justify-center gap-8">
+        {characters.map((character) => (
+          <CharacterCard key={character.id} character={character} />
+        ))}
+      </div>
     </Container>
   );
 };
