@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import Image from "next/future/image";
-import FavoriteMark from "../favorite/FavoriteMark";
 import { DetailedCharacter } from "../types";
 
 interface Props {
@@ -9,7 +8,7 @@ interface Props {
 
 export const CharacterDetails = ({ character }: Props) => {
   return (
-    <div className="flex h-full flex-col items-center overflow-hidden bg-black px-8 py-8 text-white shadow-md">
+    <div className="flex h-full flex-col items-center overflow-hidden bg-black/40 px-8 py-8 text-white shadow-md">
       <Image
         src={character.image}
         width={300}

@@ -23,7 +23,9 @@
     "next-auth": "^4.15.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-tsparticles": "^2.3.3",
     "superjson": "1.9.1",
+    "tsparticles": "^2.3.4",
     "zod": "^3.18.0",
     "zustand": "^4.1.3"
   },

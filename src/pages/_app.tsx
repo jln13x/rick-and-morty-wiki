@@ -3,7 +3,8 @@ import { SessionProvider } from "next-auth/react";
 import type { Session } from "next-auth";
 import type { AppType } from "next/app";
 import { trpc } from "../utils/trpc";
-import { GitHubLoginButton } from "@/features/auth/GithubLoginButton";
+import { Navbar } from "@/features/navbar";
+import { Galaxy } from "@/features/galaxy";
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
@@ -11,8 +12,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
 }) => {
   return (
     <SessionProvider session={session}>
-      <GitHubLoginButton />
-      <Component {...pageProps} />
+      <div className="relative z-20">
+        <Navbar />
+        <Component {...pageProps} />
+      </div>
+      <Galaxy />
     </SessionProvider>
   );
 };
