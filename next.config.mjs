@@ -22,6 +22,6 @@ export default defineNextConfig({
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["rickandmortyapi.com"],
+    domains: ["rickandmortyapi.com", "avatars.githubusercontent.com"],
   },
 });
