@@ -36,11 +36,18 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id                 String      @id @default(cuid())
+  name               String?
+  email              String?     @unique
+  emailVerified      DateTime?
+  image              String?
+  accounts           Account[]
+  sessions           Session[]
+  favoriteCharacters Character[]
+}
+
+model Character {
+  id          String @id @default(cuid())
+  externalId  String @unique
+  favoritedBy User[]
 }

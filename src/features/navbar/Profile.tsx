@@ -1,10 +1,10 @@
-import { useSession } from "next-auth/react";
 import Image from "next/future/image";
 import { LogoutButton } from "../auth";
 import { GitHubLoginButton } from "@/features/auth";
+import { trpc } from "@/utils/trpc";
 
 export const Profile = () => {
-  const { data: session } = useSession();
+  const { data: session } = trpc.auth.getSession.useQuery();
 
   if (!session || !session.user) {
     return <GitHubLoginButton />;

@@ -1,25 +1,23 @@
-import { useMemo } from "react";
 import { Character } from "../types";
-import { useFavoritesStore } from "./favorites-store";
+import { useFavorite } from "./use-favorite";
 
 interface Props {
   character: Character;
 }
 
 const FavoriteMark = ({ character }: Props) => {
-  const [favorites, toggleFavorite] = useFavoritesStore((s) => [
-    s.favorites,
-    s.toggleFavorite,
-  ]);
+  const { toggleFavorite, favorites } = useFavorite();
+  const isFavorite = favorites.includes(character.id);
 
-  const isFavorite = useMemo(
-    () => favorites.includes(character.id),
-    [favorites, character]
-  );
+  const handleToggleFavorite = () => {
+    toggleFavorite({
+      id: character.id,
+    });
+  };
 
   return (
     <button
-      onClick={() => toggleFavorite(character.id)}
+      onClick={handleToggleFavorite}
       className="fill-rose-600 stroke-rose-600/60"
       title={isFavorite ? "Remove from favorites" : "Add to favorites"}
     >

@@ -3,12 +3,12 @@ import { persist } from "zustand/middleware";
 
 interface StoreState {
   favorites: string[];
-  toggleFavorite: (id: string) => void;
+  toggleFavorite: ({ id }: { id: string }) => void;
 }
 
 const store = persist<StoreState>((set) => ({
   favorites: [],
-  toggleFavorite: (id: string) => {
+  toggleFavorite: ({ id }) => {
     set((state) => {
       if (state.favorites.includes(id)) {
         return {
