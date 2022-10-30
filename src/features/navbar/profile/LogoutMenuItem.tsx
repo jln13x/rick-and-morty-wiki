@@ -4,13 +4,10 @@ import { ProfileMenuItem } from "./ProfileMenuItem";
 export const LogoutMenuItem = () => {
   return (
     <ProfileMenuItem
-      as="button"
+      name="Logout"
       onClick={() => signOut()}
-      className="flex items-center justify-between space-x-4"
-    >
-      <span>Logout</span>
-      <LogoutIcon />
-    </ProfileMenuItem>
+      icon={<LogoutIcon />}
+    />
   );
 };
 

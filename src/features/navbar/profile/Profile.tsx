@@ -3,6 +3,7 @@ import { trpc } from "@/utils/trpc";
 import { offset, shift, useFloating } from "@floating-ui/react-dom";
 import { Menu } from "@headlessui/react";
 import Image from "next/future/image";
+import { FavoritesMenuItem } from "./FavoritesMenuItem.tsx";
 import { LogoutMenuItem } from "./LogoutMenuItem";
 
 export const Profile = () => {
@@ -41,6 +42,7 @@ export const Profile = () => {
         }}
         tabIndex={-1}
       >
+        <FavoritesMenuItem />
         <LogoutMenuItem />
       </Menu.Items>
     </Menu>

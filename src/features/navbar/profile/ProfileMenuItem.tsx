@@ -2,33 +2,24 @@ import { Menu } from "@headlessui/react";
 import clsx from "clsx";
 
 interface Props {
-  as: "button" | "a";
-  children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
+  icon?: React.ReactNode;
+  onClick: () => void;
+  name: string;
 }
 
-export const ProfileMenuItem = ({
-  children,
-  as,
-  onClick,
-  className,
-}: Props) => {
+export const ProfileMenuItem = ({ icon, name, onClick }: Props) => {
   return (
     <Menu.Item
       className={({ active }) =>
-        clsx(
-          "p-2",
-          {
-            "rounded-xl bg-indigo-600/20": active,
-          },
-          className
-        )
+        clsx("flex w-full items-center justify-between space-x-4 p-2", {
+          "rounded-xl bg-indigo-600/20": active,
+        })
       }
-      as={as}
       onClick={onClick}
+      as="button"
     >
-      {children}
+      <span>{name}</span>
+      {icon}
     </Menu.Item>
   );
 };

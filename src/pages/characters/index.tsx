@@ -1,28 +1,27 @@
-import {
-  CharacterCard,
-  useInfiniteCharacters,
-  getCharacters,
-} from "@/features/character";
+import { useInfiniteCharacters, getCharacters } from "@/features/character";
+import { CharacterList } from "@/features/character/components";
 import { Container, LoadMore } from "@/features/common/components";
 import { InferGetStaticPropsType, NextPage } from "next";
+import { useMemo } from "react";
 
-const CharactersPage: NextPage<Props> = ({ characters }) => {
+const CharactersPage: NextPage<Props> = ({
+  characters: charactersFromProps,
+}) => {
   const { data, isFetchingNextPage, fetchNextPage } = useInfiniteCharacters({
     initialData: {
       pageParams: [1],
-      pages: [characters],
+      pages: [charactersFromProps],
     },
   });
 
+  const characters = useMemo(
+    () => data?.pages.flatMap((page) => page.characters.results),
+    [data]
+  );
+
   return (
     <Container>
-      <div className="flex flex-wrap justify-center gap-8">
-        {data?.pages.map((p) =>
-          p.characters.results.map((character) => (
-            <CharacterCard key={character.id} character={character} />
-          ))
-        )}
-      </div>
+      {characters && <CharacterList characters={characters} />}
       <LoadMore
         className="mx-auto mt-12 flex"
         isLoading={isFetchingNextPage}

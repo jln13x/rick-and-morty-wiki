@@ -1,5 +1,10 @@
 import { trpc } from "@/utils/trpc";
+import { useQueryClient } from "@tanstack/react-query";
 import { useFavoritesStore } from "./favorites-store";
+import {
+  UseFavoriteCharactersData,
+  useFavoriteCharactersQueryKey,
+} from "./use-favorite-characters";
 
 /**
  * Abstraction of setting a character as favorite. Either by persisting it on the server if the user is logged in or in localstorage
@@ -24,12 +29,18 @@ export const useFavorite = () => {
     favorite: { getFavorites: getFavoritesProcedure },
   } = trpc.useContext();
 
+  const queryClient = useQueryClient();
+
   const { mutate: toggleFavoriteForUser } =
     trpc.favorite.toggleFavorite.useMutation({
       onMutate: async ({ id }) => {
         await getFavoritesProcedure.cancel();
+        await queryClient.cancelQueries(useFavoriteCharactersQueryKey);
 
-        const snapshot = getFavoritesProcedure.getData();
+        const getFavoritesSnapshot = getFavoritesProcedure.getData();
+        const favoriteCharactersSnapshot = queryClient.getQueryData<
+          UseFavoriteCharactersData | undefined
+        >(useFavoriteCharactersQueryKey);
 
         getFavoritesProcedure.setData((data) => {
           if (!data) return data;
@@ -41,13 +52,29 @@ export const useFavorite = () => {
           return [...data, id];
         });
 
+        queryClient.setQueryData<UseFavoriteCharactersData | undefined>(
+          useFavoriteCharactersQueryKey,
+          (data) => {
+            if (!data) return data;
+            return data.filter((character) => character.id !== id);
+          }
+        );
+
         return {
-          snapshot,
+          getFavoritesSnapshot,
+          favoriteCharactersSnapshot,
         };
       },
       onError: (_, __, context) => {
-        if (context?.snapshot) {
-          getFavoritesProcedure.setData(context.snapshot);
+        if (context?.getFavoritesSnapshot) {
+          getFavoritesProcedure.setData(context.getFavoritesSnapshot);
+        }
+
+        if (context?.favoriteCharactersSnapshot) {
+          queryClient.setQueryData<UseFavoriteCharactersData | undefined>(
+            useFavoriteCharactersQueryKey,
+            context.favoriteCharactersSnapshot
+          );
         }
       },
     });
