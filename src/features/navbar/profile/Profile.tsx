@@ -33,7 +33,7 @@ export const Profile = () => {
         />
       </Menu.Button>
       <Menu.Items
-        className="absolute mt-2 rounded-xl bg-black/60 p-4 backdrop-blur-sm "
+        className="absolute z-[9999] mt-2 rounded-xl bg-black/60 p-4 backdrop-blur-sm"
         as="div"
         ref={floating}
         style={{
