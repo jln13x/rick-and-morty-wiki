@@ -4,11 +4,12 @@ interface Props {
   episode: Episode;
 }
 
+// Looks pretty similar to the Character Details for consistency even tho alot of space is not used
 export const EpisodeDetails = ({ episode }: Props) => {
   return (
-    <div className="flex h-full flex-col items-center overflow-hidden bg-black px-8 py-8 text-white shadow-md">
+    <div className="flex flex-col rounded-2xl bg-black/40 p-4 text-white shadow-md">
       <h1 className="mt-2 text-center text-3xl font-bold">{episode.name}</h1>
-      <div className="mx-auto mt-4 flex justify-center rounded-2xl bg-white/10 p-4">
+      <div className="mt-8">
         <DetailsTable
           details={[
             {
@@ -35,12 +36,12 @@ interface DetailsTableProps {
 
 const DetailsTable = ({ details }: DetailsTableProps) => {
   return (
-    <table className="rounded-xl text-left text-xl">
+    <table className="whitespace-nowrap rounded-xl text-left text-xl">
       <tbody>
         {details.map((detail) => (
           <tr key={detail.heading} className="align-top">
             <th>{detail.heading}</th>
-            <td className="w-full pl-3">{detail.value}</td>
+            <td className="pl-3">{detail.value}</td>
           </tr>
         ))}
       </tbody>

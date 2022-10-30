@@ -15,12 +15,12 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const EpisodePage: NextPage<Props> = ({ episode }) => {
   return (
-    <Container>
-      <div className="relative flex flex-col md:flex-row">
-        <div className="md:sticky md:top-0 md:h-screen md:w-2/4 xl:w-1/4">
+    <Container className="h-full">
+      <div className="relative flex h-full flex-col md:flex-row ">
+        <div>
           <EpisodeDetails episode={episode} />
         </div>
-        <div className="h-full md:w-2/4 xl:w-3/4">
+        <div className="h-full">
           <EpisodeCharacters characters={episode.characters} />
         </div>
       </div>

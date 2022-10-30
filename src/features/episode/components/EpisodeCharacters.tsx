@@ -9,7 +9,7 @@ interface Props {
 
 export const EpisodeCharacters = ({ characters }: Props) => {
   return (
-    <div className="p-8">
+    <div className="p-4 px-8">
       <h2 className="text-xl font-bold tracking-wide">
         Characters that appear in this episode
       </h2>
