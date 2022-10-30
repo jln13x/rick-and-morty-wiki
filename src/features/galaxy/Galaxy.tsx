@@ -1,19 +1,11 @@
 import { useCallback } from "react";
 import { Particles } from "react-tsparticles";
 import { loadFull } from "tsparticles";
+import { GalaxyBackground } from "./GalaxyBackground";
 
 const options: NonNullable<React.ComponentProps<typeof Particles>["options"]> =
   {
     fpsLimit: 120,
-    interactivity: {
-      events: {
-        onClick: {
-          enable: false,
-          mode: "push",
-        },
-        resize: false,
-      },
-    },
     particles: {
       color: {
         value: "#fff",
@@ -25,7 +17,7 @@ const options: NonNullable<React.ComponentProps<typeof Particles>["options"]> =
         direction: "top-right",
         enable: true,
         outModes: {
-          default: "destroy",
+          default: "out",
         },
         random: false,
         speed: 0.5,
@@ -42,12 +34,13 @@ const options: NonNullable<React.ComponentProps<typeof Particles>["options"]> =
         value: 0.1,
       },
       shape: {
-        type: "circle",
+        type: "square",
       },
       size: {
         value: { min: 1, max: 5 },
       },
     },
+    preset: "stars",
     detectRetina: true,
   };
 
@@ -66,9 +59,7 @@ export const Galaxy = () => {
         init={particlesInit}
         options={options}
       />
-      <div className="absolute inset-0 z-[7] bg-gradient-to-r from-purple-900 to-black"></div>
-      <div className="absolute inset-0 z-[8] bg-gradient-to-bl from-indigo-600 to-black opacity-40"></div>
-      <div className="absolute inset-0 z-10 bg-black/40"></div>
+      <GalaxyBackground />
     </div>
   );
 };
