@@ -17,12 +17,6 @@ export const NavLink = ({ navLink }: NavLinkProps) => {
 
   const isActive = asPath.startsWith(href);
 
-  console.log({
-    href,
-    asPath,
-    isActive,
-  });
-
   return (
     <Link href={href} passHref>
       <a

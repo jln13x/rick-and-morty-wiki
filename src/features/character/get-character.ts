@@ -1,6 +1,6 @@
 import { gql, gqlClient } from "@/lib/graphql-client";
 import { z } from "zod";
-import { characterSchema } from "./get-all-characters";
+import { characterSchema } from "./get-characters";
 
 export const detailedCharacterSchema = characterSchema.extend({
   status: z.string(),
