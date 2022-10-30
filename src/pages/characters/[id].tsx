@@ -15,9 +15,9 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 const CharacterPage: NextPage<Props> = ({ character }) => {
   return (
-    <Container>
-      <div className="relative flex flex-col md:flex-row">
-        <div className="md:sticky md:top-0 md:h-screen md:w-2/4 xl:w-1/4">
+    <Container className="h-full">
+      <div className="relative flex h-full flex-col md:flex-row">
+        <div className="h-full max-w-[300px] md:sticky md:top-0 md:w-2/4">
           <CharacterDetails character={character} />
         </div>
         <div className="h-full md:w-2/4 xl:w-3/4">

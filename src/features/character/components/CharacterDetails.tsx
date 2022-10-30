@@ -8,18 +8,22 @@ interface Props {
 
 export const CharacterDetails = ({ character }: Props) => {
   return (
-    <div className="flex h-full flex-col items-center overflow-hidden bg-black/40 px-8 py-8 text-white shadow-md">
-      <Image
-        src={character.image}
-        width={300}
-        height={300}
-        alt={character.name}
-        priority={true}
-        className="rounded-2xl"
-      />
-      <h1 className="mt-2 text-center text-3xl font-bold">{character.name}</h1>
-      <LazyFavoriteMark character={character} />
-      <div className="mx-auto mt-4 flex justify-center rounded-2xl bg-white/10 p-4">
+    <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-black/40 p-4 text-white shadow-md">
+      <div className="relative">
+        <Image
+          src={character.image}
+          width={300}
+          height={300}
+          alt={character.name}
+          priority={true}
+          className="rounded-2xl"
+        />
+        <div className="absolute top-0 right-0 rounded-bl-2xl bg-black/80 p-2 backdrop-blur-sm">
+          <LazyFavoriteMark character={character} />
+        </div>
+      </div>
+      <h1 className="mt-4 text-center text-3xl font-bold">{character.name}</h1>
+      <div className="mt-8">
         <DetailsTable
           details={[
             {
@@ -62,7 +66,7 @@ interface DetailsTableProps {
 
 const DetailsTable = ({ details }: DetailsTableProps) => {
   return (
-    <table className="rounded-xl text-left text-xl">
+    <table className="rounded-xl text-left text-base">
       <tbody>
         {details.map((detail) => (
           <tr key={detail.heading} className="align-top">

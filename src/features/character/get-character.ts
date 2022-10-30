@@ -16,6 +16,8 @@ export const detailedCharacterSchema = characterSchema.extend({
     z.object({
       id: z.string(),
       name: z.string(),
+      air_date: z.string(),
+      episode: z.string(),
     })
   ),
 });
@@ -43,6 +45,8 @@ export const getCharacter = async (id: string) => {
         episode {
           id
           name
+          air_date
+          episode
         }
       }
     }
