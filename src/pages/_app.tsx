@@ -5,13 +5,12 @@ import type { Session } from "next-auth";
 import type { AppType } from "next/app";
 import "../styles/globals.css";
 import { trpc } from "../utils/trpc";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const App: AppType<{ session: Session | null }> = ({
   Component,
-  pageProps: { session: sessionFromProps, ...pageProps },
+  pageProps: { session, ...pageProps },
 }) => {
-  const session = sessionFromProps ? sessionFromProps : sessionFromProps;
-
   return (
     <div className="relative min-h-screen text-white">
       <div className="relative z-20">
@@ -19,12 +18,13 @@ const App: AppType<{ session: Session | null }> = ({
           <header>
             <Navbar />
           </header>
-          <main className="pt-20">
+          <main className="py-20">
             <Component {...pageProps} />
           </main>
         </SessionProvider>
       </div>
       <Galaxy />
+      <ReactQueryDevtools />
     </div>
   );
 };
