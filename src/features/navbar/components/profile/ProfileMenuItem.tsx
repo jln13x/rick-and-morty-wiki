@@ -12,7 +12,7 @@ export const ProfileMenuItem = ({ icon, name, onClick }: Props) => {
     <Menu.Item
       className={({ active }) =>
         clsx("flex w-full items-center justify-between space-x-4 p-2", {
-          "rounded-xl bg-indigo-600/20": active,
+          "rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600": active,
         })
       }
       onClick={onClick}
