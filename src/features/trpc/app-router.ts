@@ -1,7 +1,7 @@
 // src/server/trpc/router/_app.ts
-import { router } from "../trpc";
-import { authRouter } from "./auth";
-import { favoriteRouter } from "./favorite";
+import { router } from "./utils";
+import { favoriteRouter } from "@/features/character/favorite/favorite-router";
+import { authRouter } from "@/features/auth/auth-router";
 
 export const appRouter = router({
   auth: authRouter,

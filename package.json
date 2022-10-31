@@ -52,5 +52,8 @@
   },
   "ct3aMetadata": {
     "initVersion": "6.5.2"
+  },
+  "prisma": {
+    "schema": "src/features/db/schema.prisma"
   }
 }

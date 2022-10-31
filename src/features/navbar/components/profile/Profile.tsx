@@ -1,5 +1,5 @@
 import { GitHubLoginButton } from "@/features/auth";
-import { trpc } from "@/utils/trpc";
+import { trpc } from "@/features/trpc/trpc-client";
 import { offset, shift, useFloating } from "@floating-ui/react-dom";
 import { Menu } from "@headlessui/react";
 import Image from "next/future/image";

@@ -4,9 +4,7 @@ import { Container, LoadMore } from "@/features/common/components";
 import { InferGetStaticPropsType, NextPage } from "next";
 import { useMemo } from "react";
 
-const CharactersPage: NextPage<Props> = ({
-  characters: charactersFromProps,
-}) => {
+const Page: NextPage<Props> = ({ characters: charactersFromProps }) => {
   const { data, isFetchingNextPage, fetchNextPage } = useInfiniteCharacters({
     initialData: {
       pageParams: [1],
@@ -44,4 +42,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default CharactersPage;
+export default Page;

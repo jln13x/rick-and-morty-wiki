@@ -1,7 +1,7 @@
 import { CharacterList } from "@/features/character/components";
 import { useFavoriteCharacters } from "@/features/character/favorite";
 import { getFavoriteCharacterIdsForUser } from "@/features/character/favorite/get-favorite-characters-ids-for-user";
-import { getServerAuthSession } from "@/server/common/get-server-auth-session";
+import { getServerAuthSession } from "@/lib/next-auth";
 import type {
   GetServerSidePropsContext,
   InferGetServerSidePropsType,

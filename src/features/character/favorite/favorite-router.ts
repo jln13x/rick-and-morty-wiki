@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { protectedProcedure, router } from "../trpc";
+import { protectedProcedure, router } from "@/features/trpc/utils";
 
 export const favoriteRouter = router({
   toggleFavorite: protectedProcedure

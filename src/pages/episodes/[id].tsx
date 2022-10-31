@@ -13,7 +13,7 @@ import type {
 
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
-const EpisodePage: NextPage<Props> = ({ episode }) => {
+const Page: NextPage<Props> = ({ episode }) => {
   return (
     <Container className="h-full">
       <div className="relative flex h-full flex-col md:flex-row ">
@@ -52,4 +52,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export default EpisodePage;
+export default Page;

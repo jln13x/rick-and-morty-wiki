@@ -1,9 +1,9 @@
 import { SessionProvider } from "@/features/auth";
-import { Navbar } from "@/features/navbar";
+import { Navbar } from "@/features/navbar/components";
 import type { Session } from "next-auth";
 import type { AppType } from "next/app";
 import "../styles/globals.css";
-import { trpc } from "../utils/trpc";
+import { trpc } from "@/features/trpc/trpc-client";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import dynamic from "next/dynamic";
 

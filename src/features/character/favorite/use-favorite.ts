@@ -1,4 +1,4 @@
-import { trpc } from "@/utils/trpc";
+import { trpc } from "@/features/trpc/trpc-client";
 import { useQueryClient } from "@tanstack/react-query";
 import { useFavoritesStore } from "./favorites-store";
 import {

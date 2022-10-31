@@ -1,4 +1,4 @@
-import { trpc } from "@/utils/trpc";
+import { trpc } from "@/features/trpc/trpc-client";
 import { Session } from "next-auth";
 import { SessionProvider as NextAuthSessionProvider } from "next-auth/react";
 import { LoadingSessionOverlay } from "./LoadingSession";

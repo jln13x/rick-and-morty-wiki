@@ -1,2 +1,1 @@
-export * from "./GithubLoginButton";
-export * from "./SessionProvider";
+export * from "./components";

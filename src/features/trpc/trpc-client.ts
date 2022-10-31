@@ -4,8 +4,7 @@ import superjson from "superjson";
 import { httpBatchLink, loggerLink } from "@trpc/client";
 import { createTRPCNext } from "@trpc/next";
 import type { GetInferenceHelpers } from "@trpc/server";
-
-import type { AppRouter } from "../server/trpc/router/_app";
+import type { AppRouter } from "./app-router";
 
 const getBaseUrl = () => {
   if (typeof window !== "undefined") return ""; // browser should use relative url

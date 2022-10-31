@@ -1,4 +1,4 @@
-import { prisma } from "@/server/db/client";
+import { prisma } from "@/features/db/client";
 
 export const getFavoriteCharacterIdsForUser = async (userId: string) => {
   const userWithFavoriteCharacters = await prisma.user.findFirstOrThrow({

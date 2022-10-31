@@ -3,7 +3,7 @@ import { Container } from "@/features/common/components";
 import { getAllEpisodes } from "@/features/episode";
 import { EpisodeCard } from "@/features/episode/components";
 
-const CharactersPage: NextPage<Props> = ({ episodes }) => {
+const Page: NextPage<Props> = ({ episodes }) => {
   return (
     <Container className="flex flex-wrap justify-center gap-8">
       {episodes.map((episode) => (
@@ -25,4 +25,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default CharactersPage;
+export default Page;
