@@ -7,7 +7,9 @@ const Page: NextPage<Props> = ({ episodes }) => {
   return (
     <Container className="flex flex-wrap justify-center gap-8">
       {episodes.map((episode) => (
-        <EpisodeCard key={episode.id} episode={episode} />
+        <div key={episode.id} className="w-full sm:w-auto">
+          <EpisodeCard episode={episode} />
+        </div>
       ))}
     </Container>
   );

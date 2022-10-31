@@ -9,11 +9,11 @@ interface Props {
 
 export const EpisodeCharacters = ({ characters }: Props) => {
   return (
-    <div className="p-4 px-8">
-      <h2 className="text-xl font-bold tracking-wide">
+    <div className="pt-12 md:p-4 md:px-8">
+      <h2 className="text-center text-xl font-bold tracking-wide md:text-left">
         Characters that appear in this episode
       </h2>
-      <div className="mt-4 flex flex-wrap gap-4">
+      <div className="mt-4 flex flex-wrap justify-center gap-4 md:justify-start">
         {characters.map((character) => (
           <CharacterCard character={character} key={character.id} />
         ))}

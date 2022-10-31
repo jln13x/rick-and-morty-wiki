@@ -9,13 +9,15 @@ interface Props {
 
 export const CharacterEpisodes = ({ episodes }: Props) => {
   return (
-    <div className="p-4 px-8">
+    <div className="pt-12 md:p-4 md:px-8">
       <h2 className="text-xl font-bold tracking-wide">
         Episodes the character appears in
       </h2>
       <div className="mt-4 flex flex-wrap gap-4">
         {episodes.map((episode) => (
-          <EpisodeCard key={episode.id} episode={episode} />
+          <div className="w-full md:w-auto" key={episode.id}>
+            <EpisodeCard episode={episode} />
+          </div>
         ))}
       </div>
     </div>

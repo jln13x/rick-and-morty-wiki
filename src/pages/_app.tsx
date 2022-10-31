@@ -15,7 +15,7 @@ const App: AppType<{ session: Session | null }> = ({
     <div className="relative h-full text-white">
       <div className="relative z-20 h-screen overflow-auto">
         <SessionProvider session={session}>
-          <header className="h-[10%]">
+          <header className="min-h-[10%]">
             <Navbar />
           </header>
           <main className="h-[90%] py-20">

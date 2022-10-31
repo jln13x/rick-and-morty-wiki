@@ -10,7 +10,7 @@ export const EpisodeCard = ({ episode }: Props) => {
 
   return (
     <Link href={`/episodes/${id}`} passHref>
-      <a className="group relative  overflow-clip rounded-2xl bg-black/40 p-4 shadow-md transition-all duration-300 after:absolute after:inset-0 after:-z-[1] after:-translate-x-full after:rounded-2xl after:bg-gradient-to-r after:from-violet-600 after:to-indigo-600 after:opacity-0 after:transition-all after:duration-300  hover:bg-transparent hover:after:translate-x-0 hover:after:opacity-100">
+      <a className="group relative block w-full  overflow-clip rounded-2xl bg-black/40 p-4 shadow-md transition-all duration-300 after:absolute after:inset-0 after:-z-[1] after:-translate-x-full after:rounded-2xl after:bg-gradient-to-r after:from-violet-600 after:to-indigo-600 after:opacity-0 after:transition-all after:duration-300  hover:bg-transparent hover:after:translate-x-0 hover:after:opacity-100">
         <div className="flex h-full flex-col justify-between">
           <div className="grow">
             <span className="font-medium tracking-tight text-neutral-200">

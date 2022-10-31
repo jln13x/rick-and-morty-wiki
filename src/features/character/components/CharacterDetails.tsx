@@ -8,7 +8,7 @@ interface Props {
 
 export const CharacterDetails = ({ character }: Props) => {
   return (
-    <div className="flex h-full flex-col overflow-hidden rounded-2xl bg-black/40 p-4 text-white shadow-md">
+    <div className="flex h-full w-full flex-col overflow-hidden rounded-2xl bg-black/40 p-4 text-white shadow-md">
       <div className="relative">
         <Image
           src={character.image}
@@ -66,7 +66,7 @@ interface DetailsTableProps {
 
 const DetailsTable = ({ details }: DetailsTableProps) => {
   return (
-    <table className="rounded-xl text-left text-base">
+    <table className="whitespace-nowrap rounded-xl text-left text-base">
       <tbody>
         {details.map((detail) => (
           <tr key={detail.heading} className="align-top">
