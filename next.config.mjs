@@ -1,3 +1,5 @@
+import withBundleAnalyzer from "@next/bundle-analyzer";
+
 // @ts-check
 /* run the build with this set to skip validation */
 !process.env.SKIP_ENV_VALIDATION && (await import("./src/env/server.mjs"));
@@ -11,7 +13,7 @@ function defineNextConfig(config) {
   return config;
 }
 
-export default defineNextConfig({
+const nextConfig = defineNextConfig({
   redirects: async () => [
     {
       source: "/",
@@ -25,3 +27,7 @@ export default defineNextConfig({
     domains: ["rickandmortyapi.com", "avatars.githubusercontent.com"],
   },
 });
+
+export default withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+})(nextConfig);

@@ -1,11 +1,11 @@
 import { SessionProvider } from "@/features/auth";
-import { Galaxy } from "@/features/galaxy";
 import { Navbar } from "@/features/navbar";
 import type { Session } from "next-auth";
 import type { AppType } from "next/app";
 import "../styles/globals.css";
 import { trpc } from "../utils/trpc";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import dynamic from "next/dynamic";
 
 const App: AppType<{ session: Session | null }> = ({
   Component,
@@ -23,10 +23,12 @@ const App: AppType<{ session: Session | null }> = ({
           </main>
         </SessionProvider>
       </div>
-      <Galaxy />
+      <LazyGalaxy />
       <ReactQueryDevtools />
     </div>
   );
 };
+
+const LazyGalaxy = dynamic(() => import("@/features/galaxy/Galaxy"));
 
 export default trpc.withTRPC(App);

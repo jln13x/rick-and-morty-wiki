@@ -44,7 +44,7 @@ const options: NonNullable<React.ComponentProps<typeof Particles>["options"]> =
     detectRetina: true,
   };
 
-export const Galaxy = () => {
+const Galaxy = () => {
   const particlesInit = useCallback<
     NonNullable<React.ComponentProps<typeof Particles>["init"]>
   >(async (engine) => {
@@ -63,3 +63,5 @@ export const Galaxy = () => {
     </div>
   );
 };
+
+export default Galaxy;
