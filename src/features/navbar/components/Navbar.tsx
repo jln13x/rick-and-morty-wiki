@@ -16,7 +16,7 @@ const links: INavLink[] = [
 
 export const Navbar = () => {
   return (
-    <div className="h-full p-4">
+    <div className="h-full py-12">
       <Container className="flex h-full flex-col items-center justify-between space-y-20 md:flex-row md:space-y-0">
         <Logo />
 
